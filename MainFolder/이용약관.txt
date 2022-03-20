@@ -1,0 +1,18 @@
+Copyright (C) 2021-2022 c-closed
+
+The above program is a Sirocco BGM changer.
+Features include:
+1. Replace the original BGM with the default BGM
+(default setting: national anthem)
+2. Restoring back to original BGM
+3. Check the Dunpa installation path
+4. Errors and Suggestions
+
+If you want to change the default BGM, you can go to the 'Information' - 'Change the gateway BGM settings' menu on the top menu bar.
+
+This program changes the default BGM of Dungeon & Fighter, which is against the terms of use.
+A recovery function has been added to prevent being reported, but the creator is not responsible for any disadvantages caused by the use of the app.
+
+For other errors and suggestions, please proceed through the communication menu.
+
+The applied national anthem file is the national anthem file of 'Myel' in the 'Dunpa Skin Cafe'.
