@@ -7,9 +7,9 @@ import WTF_func
 from tkinter.ttk import *
 
 main_window = Tk()
-main_window.title("커스터마이징 적용기")
-main_w = 300
-main_h = 150
+main_window.title("떠상 탐색기")
+main_w = 250
+main_h = 120
 main_ws = main_window.winfo_screenwidth()
 main_hs = main_window.winfo_screenheight()
 main_x = (main_ws-main_w)/2
@@ -30,15 +30,12 @@ menu_comm.add_command(label="오류 및 건의사항", command=WTF_func.open_hom
 menu.add_cascade(label="정보", menu=menu_info)
 menu.add_cascade(label="소통", menu=menu_comm)
 main_window.config(menu=menu)
-    
-continent_name_combobox = Combobox(main_window, values=WTF_info.continent_name_list)
-continent_name_combobox.pack()
+continent_name_combobox = Combobox(main_window, width=15, height=15, values=WTF_info.continent_name_list, state="readonly")
+continent_name_combobox.pack(padx=5,pady=5)
 continent_name_combobox.set("대륙 선택")
-continent_apply_btn = Button(main_window, text="적용하기", command=WTF_func.change_area)
-continent_apply_btn.pack()
-area_name_combobox = Combobox(main_window)
-area_name_combobox.pack()
+area_name_combobox = Combobox(main_window, width=15, height=15, postcommand=WTF_func.change_area, state="readonly")
+area_name_combobox.pack(padx=5,pady=5)
 area_name_combobox.set("지역 선택")
 map_open_btn = Button(main_window, text="지도 열기", command=WTF_func.open_map)
-map_open_btn.pack()
+map_open_btn.pack(padx=5,pady=5)
 main_window.mainloop()
