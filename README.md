@@ -3,6 +3,7 @@ Wandering-Trader-Finder(이하 "WTF")는 로스트아크(이하 "로아")의 떠
 
 Notice
 ======
+현재 초기버전으로 업데이트가 잦을 수 있습니다.
 
 Download
 ======
