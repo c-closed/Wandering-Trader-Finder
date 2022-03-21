@@ -23,7 +23,42 @@ def check_update_log():
 def check_current_version():
     tkinter.messagebox.showinfo("현재 버전", '[ '+WTF_info.current_version+' ]')
 
-def change_area():
+def open_map():
+    import WTF_GUI
+    if WTF_GUI.continent_name_combobox.get() == "대륙 선택":
+        tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
+    elif WTF_GUI.area_name_combobox.get() == "지역 선택":
+        tkinter.messagebox.showinfo("지역 미선택","지역을 선택 후 버튼을 눌러주세요.")
+    else:
+        path = WTF_info.exe_path+'/Map/'+WTF_GUI.continent_name_combobox.get()+'/'+WTF_GUI.area_name_combobox.get()+'.png'
+        map_window = tkinter.Toplevel(WTF_GUI.main_window)
+        map_window.title(WTF_GUI.area_name_combobox.get())
+        map_window.iconbitmap(WTF_info.exe_path+'/MainFolder/icon.ico')
+        map_window.wm_attributes("-topmost", 1)
+        images = tkinter.PhotoImage(file=path,master=map_window)
+        label = tkinter.Label(map_window, image=images)
+        label.image = images
+        label.pack()
+    
+def do_not_see_again():
+    with open(WTF_info.exe_path+'/MainFolder/다시보지않기.txt','w',encoding="UTF-8") as file:
+        file.write("다시보지않기")
+        
+def chk_do_not_see_again():
+    with open(WTF_info.exe_path+'/MainFolder/다시보지않기.txt','r',encoding="UTF-8") as file:
+        check_do_not_see_again = file.read()
+    if check_do_not_see_again == "다시보지않기":
+        pass
+    elif check_do_not_see_again == "":
+        import WTF_GUI
+        do_not_see_again_window = tkinter.Toplevel(WTF_GUI.main_window)
+        do_not_see_again_window.title("다시보지않기")
+        patchnote_label = tkinter.Label(do_not_see_again_window, text=WTF_update.patchnote)
+        patchnote_label.pack(padx=5, pady=5)
+        do_not_see_again_btn = tkinter.Button(do_not_see_again_window, text="다시보지않기", command=do_not_see_again)
+        do_not_see_again_btn.pack(pady=5)
+        
+def change_area(event):
     import WTF_GUI
     current_continent = WTF_GUI.continent_name_combobox.get()
     if current_continent == "아르테미스":
@@ -56,46 +91,8 @@ def change_area():
         WTF_GUI.area_name_combobox.config(values=WTF_info.vern_south_area_list)
     elif current_continent == "로웬":
         WTF_GUI.area_name_combobox.config(values=WTF_info.lowen_area_list)
-    
     elif current_continent == "대륙 선택":
         tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
     else:
         tkinter.messagebox.showerror("오류 발생",'관리자에게 "콤보박스 오류"라고 전달해주세요.')
     WTF_GUI.area_name_combobox.set("지역 선택")
-    
-def open_map():
-    import WTF_GUI
-    if WTF_GUI.continent_name_combobox.get() == "대륙 선택":
-        tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
-    elif WTF_GUI.area_name_combobox.get() == "지역 선택":
-        tkinter.messagebox.showinfo("지역 미선택","지역을 선택 후 버튼을 눌러주세요.")
-    else:
-        current_area = WTF_GUI.area_name_combobox.get()
-        path = WTF_info.exe_path+'/Map/'+current_area+'.png'
-        map_window = tkinter.Toplevel(WTF_GUI.main_window)
-        map_window.title(current_area)
-        map_window.iconbitmap(WTF_info.exe_path+'/MainFolder/icon.ico')
-        map_window.wm_attributes("-topmost", 1)
-        map_window.attributes('-alpha', transparency_value)
-        images = tkinter.PhotoImage(file=path,master=map_window)
-        label = tkinter.Label(map_window, image=images)
-        label.image = images
-        label.pack()
-    
-def do_not_see_again():
-    with open(WTF_info.exe_path+'/MainFolder/다시보지않기.txt','w',encoding="UTF-8") as file:
-        file.write("다시보지않기")
-        
-def chk_do_not_see_again():
-    with open(WTF_info.exe_path+'/MainFolder/다시보지않기.txt','r',encoding="UTF-8") as file:
-        check_do_not_see_again = file.read()
-    if check_do_not_see_again == "다시보지않기":
-        pass
-    elif check_do_not_see_again == "":
-        import WTF_GUI
-        do_not_see_again_window = tkinter.Toplevel(WTF_GUI.main_window)
-        do_not_see_again_window.title("다시보지않기")
-        patchnote_label = tkinter.Label(do_not_see_again_window, text=WTF_update.patchnote)
-        patchnote_label.pack(padx=5, pady=5)
-        do_not_see_again_btn = tkinter.Button(do_not_see_again_window, text="다시보지않기", command=do_not_see_again)
-        do_not_see_again_btn.pack(pady=5)
