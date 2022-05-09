@@ -11,7 +11,7 @@ response = get(WTF_info.update_check_url)
 if response.status_code == 200:
     latest_version = response.json()["name"]
     updatelog = response.json()["body"]
-    patchnote = "\n### "+WTF_info.current_version+" 업데이트 안내 ###\n\n"+updatelog+'\n'
+    patchnote = "\n### "+latest_version+" 업데이트 안내 ###\n\n"+updatelog+'\n'
 elif response.status_code == 404:
     msgbox.showinfo('현재 점검중입니다.', '현재 점검중이니 관리자에게 문의해주세요.')
     webbrowser.open(WTF_info.homepage_url)

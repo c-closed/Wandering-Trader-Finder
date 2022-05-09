@@ -21,8 +21,6 @@ main_window.wm_attributes("-topmost", 1)
 menu = Menu(main_window)
 
 menu_info = Menu(menu, tearoff=0, relief='groove')
-menu_info.add_command(label="커마 폴더 경로 확인", command=WTF_func.check_customizing_path)
-menu_info.add_command(label="로아 설치 경로 확인", command=WTF_func.check_lostark_install_path)
 menu_info.add_command(label="현재 버전 확인", command=WTF_func.check_current_version)
 menu_info.add_command(label="업데이트 로그", command=WTF_func.check_update_log)
 menu_comm = Menu(menu, tearoff=0, relief='groove')

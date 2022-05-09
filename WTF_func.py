@@ -91,6 +91,10 @@ def change_area(event):
         WTF_GUI.area_name_combobox.config(values=WTF_info.vern_south_area_list)
     elif current_continent == "로웬":
         WTF_GUI.area_name_combobox.config(values=WTF_info.lowen_area_list)
+    elif current_continent == "엘가시아":
+        WTF_GUI.area_name_combobox.config(values=WTF_info.elgacia_area_list)
+    elif current_continent == "플레체" or "볼다이크":
+        tkinter.messagebox.showinfo("대륙 미구현","현재 '플레체'와 '볼다이크'는 미구현 대륙입니다.")
     elif current_continent == "대륙 선택":
         tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
     else:
