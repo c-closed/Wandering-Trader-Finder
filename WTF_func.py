@@ -6,12 +6,6 @@ import webbrowser
 import tkinter.messagebox
 import tkinter
 import WTF_update
-
-def check_lostark_install_path():
-    tkinter.messagebox.showinfo("로아 설치 경로", WTF_info.LA_path)
-    
-def check_customizing_path():
-    tkinter.messagebox.showinfo("커마 폴더 경로", WTF_info.Customizing_path)
     
 def open_homepage():
     webbrowser.open(WTF_info.homepage_url)
@@ -33,7 +27,7 @@ def open_map():
         path = WTF_info.exe_path+'/Map/'+WTF_GUI.continent_name_combobox.get()+'/'+WTF_GUI.area_name_combobox.get()+'.png'
         map_window = tkinter.Toplevel(WTF_GUI.main_window)
         map_window.title(WTF_GUI.area_name_combobox.get())
-        map_window.iconbitmap(WTF_info.exe_path+'/MainFolder/icon.ico')
+        map_window.iconbitmap(WTF_info.exe_path+'/MainFolder/WTF_icon.ico')
         map_window.wm_attributes("-topmost", 1)
         images = tkinter.PhotoImage(file=path,master=map_window)
         label = tkinter.Label(map_window, image=images)

@@ -23,7 +23,7 @@ else:
     
 if latest_version[1:6] > WTF_info.current_version[1:6]:
     msgbox.showinfo('최신 버전 발견', '최신 버전 다운로드를 위해 링크가 열립니다.')
-    webbrowser.open(WTF_info.homepage_url)
+    webbrowser.open('https://github.com/c-closed/Wandering-Trader-Finder/releases/download/v'+latest_version[1:6]+'/WTF-'+latest_version[1:6]+'.msi')
     sys.exit(0)
 elif latest_version[1:6] <= WTF_info.current_version[1:6]:
     pass

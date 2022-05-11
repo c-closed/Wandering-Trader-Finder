@@ -15,7 +15,7 @@ main_hs = main_window.winfo_screenheight()
 main_x = (main_ws-main_w)/2
 main_y = (main_hs-main_h)/2
 main_window.geometry('%dx%d+%d+%d' % (main_w, main_h, main_x, main_y))
-main_window.iconbitmap(WTF_info.exe_path+'/MainFolder/icon.ico')
+main_window.iconbitmap(WTF_info.exe_path+'/MainFolder/WTF_icon.ico')
 main_window.wm_attributes("-topmost", 1)
 
 menu = Menu(main_window)
