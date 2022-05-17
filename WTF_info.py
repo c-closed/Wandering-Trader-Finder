@@ -3,7 +3,7 @@
 ### Copyright ⓒ 2021-2022 c-closed / 감는 my______baby@naver.com ###
 import os
 
-current_version = 'v1.1.1'
+current_version = 'v1.1.2'
 homepage_url = 'http://github.com/c-closed/Wandering-Trader-Finder'
 latest_release_url = 'http://github.com/c-closed/Wandering-Trader-Finder/releases/latest'
 update_check_url = 'https://api.github.com/repos/c-closed/Wandering-Trader-Finder/releases/latest'

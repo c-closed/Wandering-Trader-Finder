@@ -23,6 +23,8 @@ def open_map():
         tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
     elif WTF_GUI.area_name_combobox.get() == "지역 선택":
         tkinter.messagebox.showinfo("지역 미선택","지역을 선택 후 버튼을 눌러주세요.")
+    elif WTF_GUI.area_name_combobox.get() == "미구현":
+        tkinter.messagebox.showerror("미구현 지역","해당 지역은 미구현 지역입니다.\n추후 업데이트를 했을때 추가될 예정입니다.")
     else:
         path = WTF_info.exe_path+'/Map/'+WTF_GUI.continent_name_combobox.get()+'/'+WTF_GUI.area_name_combobox.get()+'.png'
         map_window = tkinter.Toplevel(WTF_GUI.main_window)
@@ -87,8 +89,10 @@ def change_area(event):
         WTF_GUI.area_name_combobox.config(values=WTF_info.lowen_area_list)
     elif current_continent == "엘가시아":
         WTF_GUI.area_name_combobox.config(values=WTF_info.elgacia_area_list)
-    elif current_continent == "플레체" or "볼다이크":
-        tkinter.messagebox.showinfo("대륙 미구현","현재 '플레체'와 '볼다이크'는 미구현 대륙입니다.")
+    elif current_continent == "플레체":
+        WTF_GUI.area_name_combobox.config(values=WTF_info.pletze_area_list)
+    elif current_continent == "볼다이크":
+        WTF_GUI.area_name_combobox.config(values=WTF_info.voldaik_area_list)
     elif current_continent == "대륙 선택":
         tkinter.messagebox.showinfo("대륙 미선택","대륙을 선택 후 버튼을 눌러주세요.")
     else:
